@@ -4,10 +4,8 @@ import (
 	"bytes"
 	"github.com/SebastiaanKlippert/go-wkhtmltopdf"
 	"html/template"
-	"io/ioutil"
 	"log"
-	"strconv"
-	"time"
+	"strings"
 )
 
 type PDFHtmlTemplate struct {
@@ -16,11 +14,8 @@ type PDFHtmlTemplate struct {
 	filePath string
 }
 
-func NewPDFHtmlTemplate(filePath string, data map[string]interface{}) *PDFHtmlTemplate {
-	return &PDFHtmlTemplate{
-		filePath: filePath,
-		data:     data,
-	}
+func NewPDFHtmlTemplate() *PDFHtmlTemplate {
+	return &PDFHtmlTemplate{}
 }
 func (pdfHtmlTemplate *PDFHtmlTemplate) ParseTemplate(templatePath string, data interface{}) error {
 	t, err := template.ParseFiles(templatePath)
@@ -36,25 +31,31 @@ func (pdfHtmlTemplate *PDFHtmlTemplate) ParseTemplate(templatePath string, data 
 }
 
 func (pdfHtmlTemplate *PDFHtmlTemplate) GeneratePDF(pdfPath string) (bool, error) {
-	t := time.Now().Unix()
+	//t := time.Now().Unix()
 
-	err1 := ioutil.WriteFile("cloneTemplate/"+strconv.FormatInt(int64(t), 10)+".html", []byte(pdfHtmlTemplate.body), 0644)
-	if err1 != nil {
-		panic(err1)
-	}
+	//err1 := ioutil.WriteFile("cloneTemplate/"+strconv.FormatInt(int64(t), 10)+".html", []byte(pdfHtmlTemplate.body), 0644)
+	//if err1 != nil {
+	//	panic(err1)
+	//}
 
 	pdfg, err := wkhtmltopdf.NewPDFGenerator()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	page := wkhtmltopdf.NewPage("cloneTemplate/" + strconv.FormatInt(int64(t), 10) + ".html")
+	page := wkhtmltopdf.NewPageReader(strings.NewReader(pdfHtmlTemplate.body))
+	//page := wkhtmltopdf.NewPage("cloneTemplate/" + strconv.FormatInt(int64(t), 10) + ".html")
 
 	pdfg.AddPage(page)
 
 	pdfg.PageSize.Set(wkhtmltopdf.PageSizeA4)
 
-	pdfg.Dpi.Set(300)
+	pdfg.MarginRight.Set(0)
+	pdfg.MarginLeft.Set(0)
+	pdfg.MarginTop.Set(0)
+	pdfg.MarginBottom.Set(0)
+
+	pdfg.Dpi.Set(400)
 
 	err = pdfg.Create()
 	if err != nil {

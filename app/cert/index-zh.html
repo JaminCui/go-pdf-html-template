@@ -5,42 +5,42 @@
 </header>
 <body>
 <div class="content">
-    <img src="$bg.png" alt="" class="bg">
-    <p class="match-name pa">$game_name</p>
+    <img src="{{ .BgImage }}" alt="" class="bg">
+    <p class="match-name pa">{{ .GameName }}</p>
     <div class="theme-icon pa">
-        <img src="$theme.png" alt="">
+        <img src="{{ .ThemeImage }}" alt="">
     </div>
     <div class="prize pa">
-        <p>$prize-0</p>
-        <p>$prize-1</p>
+        <p>{{ .Prize0 }}</p>
+        <p>{{ .Prize1 }}</p>
     </div>
-    <p class="team-no pa team">$team_no</p>
-    <p class="team-name pa team">$team_name</p>
-    <p class="student-name pa team">$student_group</p>
-    <p class="teacher-name pa team">$teacher_group</p>
-    <footer class="pa">$game_end_at</footer>
+    <p class="team-no pa team">{{ .TeamNo }}</p>
+    <p class="team-name pa team">{{ .TeamName }}</p>
+    <p class="student-name pa team">{{ .StudentGroup }}</p>
+    <p class="teacher-name pa team">{{ .TeacherGroup }}</p>
+    <footer class="pa">{{ .GameEndAt }}</footer>
 </div>
 <div style="page-break-after:always;"></div>
 <div class="back">
-    <img src="$back_image" alt="">
+    <img src="{{ .BackImage }}" alt="">
 </div>
 </body>
 <style>
     @font-face{
         font-family: 'SourceHanSans-Medium';
-        src : url('http://localhost:7001/public/cert/fonts/SourceHanSansCN-Medium.otf');
+        src : url('http://cloud.makex.cc/public/cert/fonts/SourceHanSansCN-Medium.otf');
     }
     @font-face{
         font-family: 'SourceHanSans-Bold';
-        src : url('http://localhost:7001/public/cert/fonts/SourceHanSansCN-Bold.otf');
+        src : url('http://cloud.makex.cc/public/cert/fonts/SourceHanSansCN-Bold.otf');
     }
     @font-face{
         font-family: 'SourceHanSans-Regular';
-        src : url('http://localhost:7001/public/cert/fonts/SourceHanSansCN-Regular.otf');
+        src : url('http://cloud.makex.cc/public/cert/fonts/SourceHanSansCN-Regular.otf');
     }
     @font-face{
         font-family: 'GT-Regular';
-        src: url('http://localhost:7001/public/cert/fonts/GT-America-Extended-Regular.otf');
+        src: url('http://cloud.makex.cc/public/cert/fonts/GT-America-Extended-Regular.otf');
     }
     body {
         height:100vh;
