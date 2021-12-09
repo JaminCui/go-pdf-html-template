@@ -3,11 +3,13 @@ package app
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 func ExportPDFTemplate(c *gin.Context) {
 	content, err := WKHtml2PDFTest()
 	if err != nil {
+		c.JSON(http.StatusOK, err.Error())
 		fmt.Println(err)
 	}
 	c.Header("Content-Disposition", "attachment; filename="+"Workbook.pdf")

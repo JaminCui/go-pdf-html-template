@@ -4,9 +4,9 @@ func WKHtml2PDFTest() ([]byte, error) {
 	templatePath := "app/cert/index-zh.html"
 
 	templateData := map[string]interface{}{
-		"BgImage":      "http://cloud.makex.cc/public/cert/images/bg-2020-zh.png",
+		"BgImage":      "/Users/jamin/makeblock-jamin/go-pdf-html-template/app/cert/images/bg-2020-zh.png",
 		"GameName":     "总决赛",
-		"ThemeImage":   "http://cloud.makex.cc/public/cert/images/ultimateWarrior-icon-zh.png",
+		"ThemeImage":   "/Users/jamin/makeblock-jamin/go-pdf-html-template/app/cert/images/premier-icon-zh.png",
 		"PrizeLang":    "zh",
 		"Prize0":       "一等奖",
 		"Prize1":       "prize title",
@@ -15,7 +15,7 @@ func WKHtml2PDFTest() ([]byte, error) {
 		"StudentGroup": "苏老板",
 		"TeacherGroup": "测试大佬",
 		"GameEndAt":    "2020-07-06",
-		"BackImage":    "http://cloud.makex.cc/public/cert/images/makex-2020-back.png",
+		"BackImage":    "/Users/jamin/makeblock-jamin/go-pdf-html-template/app/cert/images/makex-2020-back.png",
 	}
 
 	body, err := ParseTemplate(templatePath, templateData)

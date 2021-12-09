@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+    <meta charset="utf-8">
+    <style>
+        /* 中文字体 */
+        @font-face{
+            font-family: 'SourceHanSans-Medium';
+            src : url('/Users/jamin/makeblock-jamin/go-pdf-html-template/app/cert/fonts/SourceHanSansCN-Medium.otf');
+        }
+        @font-face{
+            font-family: 'SourceHanSans-Bold';
+            src : url('/Users/jamin/makeblock-jamin/go-pdf-html-template/app/cert/fonts/SourceHanSansCN-Bold.otf');
+        }
+        @font-face{
+            font-family: 'SourceHanSans-Regular';
+            src : url('/Users/jamin/makeblock-jamin/go-pdf-html-template/app/cert/fonts/SourceHanSansCN-Regular.otf');
+        }
+        /* 英文字体 */
+        @font-face{
+            font-family: 'GT-Regular';
+            src: url('/Users/jamin/makeblock-jamin/go-pdf-html-template/app/cert/fonts/GT-America-Extended-Regular.otf');
+        }
+        @font-face{
+            font-family: 'GT-Bold';
+            src: url('/Users/jamin/makeblock-jamin/go-pdf-html-template/app/cert/fonts/GT-America-Extended-Bold.otf');
+        }
+        body {
+            height:100vh;
+            margin: 0;
+        }
+        .pa {
+            position: absolute;
+        }
+        .content {
+            position: relative;
+        }
+        .bg {
+            width: 100%;
+            display: block;
+        }
+        p.match-name {
+            white-space:pre-wrap;
+            font-size: 26px;
+            top: 34%;
+            left: 50%;
+            margin-left: -175px;
+            width: 350px;
+            text-align: center;
+            font-family: 'SourceHanSans-Medium';
+            color: #000136;
+        }
+        .theme-icon {
+            top: 47%;
+            text-align: center;
+            width: 100%;
+        }
+        .theme-icon img {
+            height: 80px;
+        }
+        .prize {
+            top: 61%;
+            width: 100%;
+        }
+        .prize p:first-child {
+            font-size: 20px;
+            color: #e42d2f;
+            text-align: center;
+            margin: 0;
+            font-family: 'GT-Bold';
+        }
+        .team {
+            color: #0d142d;
+            font-size: 11.5px;
+            font-family: 'SourceHanSans-Medium';
+        }
+        .team-no {
+            left: 100px;
+            bottom: 215px;
+        }
+        .team-name {
+            left: 344px;
+            bottom: 215px;
+        }
+        .student-name {
+            top: 638px;
+            left: 100px;
+            width: 30%;
+        }
+        .teacher-name {
+            top: 638px;
+            left: 344px;
+        }
+        footer {
+            bottom: 55px;
+            width: 100%;
+            text-align: center;
+            font-size: 11.5px;
+            font-family: 'SourceHanSans-Medium';
+        }
+        .back img{
+            width: 100%;
+            float: left;
+        }
+
+        .prize-zh {
+            font-family: 'SourceHanSans-Bold' !important;
+        }
+    </style>
+</header>
+<body>
+<div class="content">
+    <img src="/Users/jamin/makeblock-jamin/go-pdf-html-template/app/cert/images/bg-2020-zh.png" alt="" class="bg">
+    <p class="match-name pa">$game_name</p>
+    <div class="theme-icon pa">
+        <img src="/Users/jamin/makeblock-jamin/go-pdf-html-template/app/cert/images/premier-icon-zh.png" alt="">
+    </div>
+    <div class="prize pa ">
+        <p class="prize-zh">$prize-1</p>
+    </div>
+    <p class="team-no pa team">$team_no</p>
+    <p class="team-name pa team">$team_name</p>
+    <p class="student-name pa team">$student_group</p>
+    <p class="teacher-name pa team">$teacher_group</p>
+    <footer class="pa">$game_end_at</footer>
+</div>
+<div style="page-break-after:always;"></div>
+<div class="back">
+    <img src="/Users/jamin/makeblock-jamin/go-pdf-html-template/app/cert/images/makex-2020-back.png" alt="">
+</div>
+</body>
+</html>

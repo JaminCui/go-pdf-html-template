@@ -31,6 +31,10 @@ func WKHtml2PDF(body string) ([]byte, error) {
 	}
 
 	page := wkhtmltopdf.NewPageReader(strings.NewReader(body))
+	page.Allow.Set("/cert/fonts")
+	page.Allow.Set("/cert/images")
+	page.EnableLocalFileAccess.Set(true)
+
 	pdfg.AddPage(page)
 	pdfg.PageSize.Set(wkhtmltopdf.PageSizeA4)
 	pdfg.MarginRight.Set(0)
@@ -52,7 +56,7 @@ func GoTenBerPDF(body string) (*http.Response, error) {
 		Timeout: time.Duration(50) * time.Second,
 	}
 	client := &gotenberg.Client{Hostname: "http://localhost:3000", HTTPClient: httpClient}
-	//file, err := ioutil.ReadFile("app/cert/index-zh.html")
+	//file, err := ioutil.ReadFile("app/cert2/index-zh.html")
 	//if err != nil {
 	//	log.Fatal(err)
 	//}
