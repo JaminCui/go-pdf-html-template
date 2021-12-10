@@ -5,7 +5,7 @@ pipeline {
   }
   stages {
     stage('notify-start') {
-      agent { docker 'jamincui/bsdo:2.0.0' }
+      agent { docker 'jamincui/bsdo:1.0.0' }
       when {
         anyOf {
           branch 'master'; branch 'release/*'; tag "release*"; tag "preview*"
@@ -122,7 +122,7 @@ pipeline {
       }
     }
 //     stage('notify-success') {
-//       agent { docker 'makeblock/bsdo:2.0.0' }
+//       agent { docker 'makeblock/bsdo:1.0.0' }
 //       when {
 //         anyOf {
 //           branch 'master'; branch 'release/*'; tag "release*"; tag "preview*"
@@ -135,6 +135,7 @@ pipeline {
   }
   post {
     failure {
+      agent { docker 'jamincui/bsdo:1.0.0' }
       node('docker'){
            sh "echo \"oh shit!\""
 //         sh "docker run makeblock/feishu feishu post -t ${MAKEX_FEISHU_TOKEN} -s ${MAKEX_FEISHU_SECRET} -i \"${BUILD_TAG} fail\" -r \"${RUN_DISPLAY_URL}\" -f \"${JOB_NAME}\" -a all"
