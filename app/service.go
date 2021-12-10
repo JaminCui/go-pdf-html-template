@@ -2,12 +2,13 @@ package app
 
 import (
 	"bytes"
-	"github.com/SebastiaanKlippert/go-wkhtmltopdf"
-	"github.com/thecodingmachine/gotenberg-go-client/v7"
 	"html/template"
 	"net/http"
 	"strings"
 	"time"
+
+	"github.com/SebastiaanKlippert/go-wkhtmltopdf"
+	"github.com/thecodingmachine/gotenberg-go-client/v7"
 )
 
 // ParseTemplate ParseTemplate
