@@ -49,6 +49,7 @@ func WKHtml2PDF(body string) ([]byte, error) {
 
 		return nil, err
 	}
+	pdfg.Buffer()
 	return pdfg.Bytes(), nil
 }
 
